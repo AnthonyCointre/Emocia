@@ -1,0 +1,113 @@
+.about-section {
+  max-width: 90%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-section p {
+  color: rgb(128, 128, 128);
+  font-size: large;
+}
+
+.about-me,
+.my-approach,
+.faq,
+.why-choose-me {
+  text-align: justify;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.my-approach,
+.faq {
+  margin-top: 20px;
+}
+
+.about-me-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-me-photo {
+  max-width: 150px;
+  margin: 0;
+}
+
+.questions {
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+.answers {
+  margin: 0 0 10px;
+  display: inline-block;
+}
+
+.closing {
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+}
+
+h1,
+h2 {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin: 0;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+h2 {
+  font-size: x-large;
+}
+
+
+@media screen and (max-width: 810px) {
+  .about-section {
+    max-width: 90%;
+    gap: 15px;
+  }
+
+  .about-me,
+  .my-approach,
+  .faq,
+  .why-choose-me {
+    padding: 15px;
+  }
+
+  .about-me-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-me-photo {
+    max-width: 120px;
+    margin-bottom: 15px;
+  }
+
+  .about-section p,
+  .closing {
+    font-size: medium;
+  }
+
+  h1 {
+    font-size: x-large;
+  }
+
+  h2 {
+    font-size: large;
+  }
+}

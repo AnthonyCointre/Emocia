@@ -1,0 +1,17 @@
+footer {
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+    color: #555;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 810px) {
+    footer p {
+        font-size: 0.8rem;
+        padding: 10px 5px;
+    }
+}

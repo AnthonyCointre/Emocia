@@ -1,0 +1,90 @@
+header {
+  background-color: rgb(0, 153, 0);
+  padding: 10px 20px;
+  position: relative;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-header-left-logo {
+  width: 50px;
+  height: auto;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container-header-center,
+.container-header-right {
+  display: flex;
+  gap: 10px;
+}
+
+.container-header-center div,
+.container-header-right div {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  padding: 10px 15px;
+}
+
+.container-header-center div:hover,
+.container-header-right div:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background-color: rgb(0, 153, 0);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.mobile-menu div {
+  padding: 12px 15px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+.mobile-menu div:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.mobile-menu.show {
+  display: flex;
+}
+
+
+@media screen and (max-width: 810px) {
+
+  .container-header-center,
+  .container-header-right {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}

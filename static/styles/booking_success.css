@@ -1,0 +1,63 @@
+.booking-success-container {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  max-width: 600px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: xx-large;
+  margin: 0;
+  color: rgb(0, 0, 0);
+}
+
+p {
+  font-size: large;
+  color: rgb(64, 64, 64);
+  margin: 0;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 25px;
+  background-color: rgb(0, 153, 0);
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+a:hover {
+  background-color: rgb(0, 140, 0);
+}
+
+
+@media screen and (max-width: 810px) {
+  main {
+    padding: 30px 10px;
+  }
+
+  .booking-success-container {
+    padding: 25px 15px;
+  }
+
+  h1 {
+    font-size: x-large;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  a {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}

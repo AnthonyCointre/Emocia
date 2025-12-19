@@ -1,0 +1,187 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: rgb(255, 230, 204);
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: rgb(0, 153, 0);
+  padding: 18.5px 20px;
+  position: relative;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  display: inline;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
+}
+
+header nav ul li a:hover {
+  background-color: rgb(0, 128, 0);
+  border-radius: 5px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  text-align: right;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background-color: rgb(0, 153, 0);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.mobile-menu div {
+  padding: 12px 15px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+.mobile-menu div:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.mobile-menu.show {
+  display: flex;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+}
+
+#intro {
+  text-align: center;
+}
+
+.cover-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.8em 1.5em;
+  background-color: #008cba;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.cta-button:hover {
+  background-color: #005f75;
+}
+
+#features {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+.feature {
+  max-width: 400px;
+  margin: 1em;
+}
+
+.features img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.features p {
+  text-align: justify;
+  padding: 0 20px;
+}
+
+#about {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.team ul {
+  list-style: none;
+  padding: 0;
+}
+
+.team ul li {
+  display: inline;
+  margin: 0 0.5em;
+}
+
+#linkedin,
+#github,
+#x {
+  max-width: 50px;
+}
+
+#github-repo {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.8em 1.5em;
+  background-color: #008cba;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+#github-repo:hover {
+  background-color: #005f75;
+}
+
+
+@media screen and (max-width: 810px) {
+
+  header nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
