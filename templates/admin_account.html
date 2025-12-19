@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Account | Emocia{% endblock %}
+
+{% block description %}
+Admin account management page to view and manage appointments and messages.
+{% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/admin_account.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+  <h1>Account</h1>
+
+  <h2>Appointments</h2>
+  <div class="table-wrapper">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Action</th>
+      </tr>
+      {% for a in appointments %}
+      <tr>
+        <td>{{ a[0] }}</td>
+        <td>{{ a[1] }}</td>
+        <td>{{ a[2] }}</td>
+        <td>{{ a[3] }}</td>
+        <td>
+          <form class="deleteForm" action="{{ url_for('admin.delete_appointment') }}" method="POST">
+            <input type="hidden" name="full_name" value="{{ a[0] }}">
+            <input type="hidden" name="email" value="{{ a[1] }}">
+            <input type="hidden" name="date" value="{{ a[2] }}">
+            <input type="hidden" name="time" value="{{ a[3] }}">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  <h2>Messages</h2>
+  <div class="table-wrapper">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Subject</th>
+        <th>Message</th>
+        <th>Received At</th>
+        <th>Action</th>
+      </tr>
+      {% for m in messages %}
+      <tr>
+        <td>{{ m[0] }}</td>
+        <td>{{ m[1] }}</td>
+        <td>{{ m[2] }}</td>
+        <td>{{ m[3] }}</td>
+        <td>{{ m[4] }}</td>
+        <td>
+          <form class="deleteForm" action="{{ url_for('admin.delete_message') }}" method="POST">
+            <input type="hidden" name="name" value="{{ m[0] }}">
+            <input type="hidden" name="email" value="{{ m[1] }}">
+            <input type="hidden" name="subject" value="{{ m[2] }}">
+            <input type="hidden" name="created_at" value="{{ m[4] }}">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  <form action="/admin/logout" method="get">
+    <button type="submit">Logout</button>
+  </form>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='scripts/admin_account.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}Account | Emocia{% endblock %}
+
+{% block description %}
+Account management page to view and manage your appointments and personal information.
+{% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/account.css') }}">
+{% endblock %}
+
+{% block meta_tags %}
+<meta property="og:title" content="Account | Emocia">
+<meta property="og:description"
+  content="Account management page to view and manage your appointments and personal information.">
+<meta property="og:url" content="https://www.emocia.com/account">
+<meta property="og:image" content="https://www.emocia.com/static/images/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Emocia">
+{% endblock %}
+
+{% block content %}
+<div class="account-container">
+  <h1>Account</h1>
+
+  <h2>Personal Information</h2>
+  <table class="personal-info-table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ user[1] }}</td>
+        <td>{{ user[2] }}</td>
+        <td>{{ user[3] }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Your Appointments</h2>
+  {% if appointments %}
+  <table class="appointments-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Hour</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for appt in appointments %}
+      <tr>
+        <td>{{ appt[0] }}</td>
+        <td>{{ appt[1] }}</td>
+        <td>{{ appt[2] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>You have no appointments yet.</p>
+  {% endif %}
+
+  <form id="deleteAccountForm" action="/account" method="post">
+    <input type="hidden" name="action" value="delete">
+    <button type="submit">Delete Account</button>
+  </form>
+
+  <form action="/logout" method="get">
+    <button type="submit">Logout</button>
+  </form>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='scripts/account.js') }}"></script>
+{% endblock %}

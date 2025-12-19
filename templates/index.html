@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing page | Emocia</title>
+  <link rel="icon" href="/static/images/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/static/styles/index.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="/home">App</a></li>
+      </ul>
+    </nav>
+
+    <div class="hamburger" id="hamburger">
+      &#9776;
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <div onclick="location.href='#intro';">Intro</div>
+      <div onclick="location.href='#features';">Features</div>
+      <div onclick="location.href='#about';">About</div>
+      <div onclick="location.href='/home';">App</div>
+    </div>
+  </header>
+
+  <main>
+    <section id="intro">
+      <img src="/static/images/logo.png" alt="Émocia" class="cover-image">
+      <p>A web application for a neurotherapist and hypnotherapist<br>
+        specialised in emotional detachment, the management of negative emotions, and the healing of traumas and wounds.
+      </p>
+      <a href="/home" class="cta-button">Try the App</a>
+    </section>
+
+    <section id="features">
+      <h2>Features</h2>
+      <div class="features">
+
+        <div class="feature">
+          <img src="/static/images/python.png" alt="Python">
+          <h3>Core Logic Powered by Python</h3>
+          <p>All appointment handling and business logic run on Python, ensuring fast, reliable, and customizable
+            processing tailored to the workflow.</p>
+        </div>
+
+        <div class="feature">
+          <img src="/static/images/flask.png" alt="Flask">
+          <h3>Lightweight & Efficient Backend with Flask</h3>
+          <p>The application is built with Flask, providing a clean, flexible, and secure backend that handles routing,
+            form submissions, authentication, and dynamic page rendering.</p>
+        </div>
+
+        <div class="feature">
+          <img src="/static/images/sqlite.png" alt="SQLite">
+          <h3>Secure Data Management with SQLite</h3>
+          <p>SQLite ensures safe and efficient storage of appointments, messages, and user accounts, offering a stable
+            and lightweight database solution ideal for small to medium applications.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>The inspiration for this project came from a therapist friend of mine.<br>
+        She is the only one of my friends who is a freelancer, so I thought of her when I was looking for a theme.</p>
+      <div class="team">
+        <h3>Anthony Cointre</h3>
+        <ul>
+          <li>
+            <a href="https://linkedin.com" target="_blank"><img src="/static/images/linkedin.png" alt="LinkedIn"
+                id="linkedin"></a>
+          </li>
+          <li>
+            <a href="https://github.com/AnthonyCointre" target="_blank"><img src="/static/images/github.png"
+                alt="GitHub" id="github"></a>
+          </li>
+          <li>
+            <a href="https://x.com" target="_blank"><img src="/static/images/x.png" alt="X" id="x"></a>
+          </li>
+        </ul>
+        <a href="https://github.com/AnthonyCointre/holbertonschool-portfolio_project.git" target="_blank"
+          id="github-repo">Project GitHub Repository</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/scripts/index.js"></script>
+</body>
+
+</html>

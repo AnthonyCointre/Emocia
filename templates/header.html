@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/header.css') }}">
+
+<header>
+  <div class="container-header">
+    <div class="container-header-left">
+      <div tabindex="0" onclick="location.href='/home';">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Émocia" class="container-header-left-logo">
+      </div>
+    </div>
+
+    <div class="container-header-center" id="desktop-menu">
+      <div tabindex="0" onclick="location.href='/home';">Home</div>
+      <div tabindex="0" onclick="location.href='/about';">About</div>
+      <div tabindex="0" onclick="location.href='/contact';">Contact</div>
+      {% if 'email' in session or 'admin' in session %}
+      <div tabindex="0" onclick="location.href='/booking';">Booking</div>
+      {% else %}
+      <div tabindex="0" onclick="location.href='/login';">Booking</div>
+      {% endif %}
+    </div>
+
+    <div class="container-header-right" id="desktop-menu-right">
+      {% if 'email' in session %}
+      <div tabindex="0" onclick="location.href='/account';">Account</div>
+      {% elif 'admin' in session %}
+      <div tabindex="0" onclick="location.href='/admin/account';">Admin</div>
+      {% else %}
+      <div tabindex="0" onclick="location.href='/login';">Login</div>
+      {% endif %}
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      &#9776;
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <div onclick="location.href='/home';">Home</div>
+    <div onclick="location.href='/about';">About</div>
+    <div onclick="location.href='/contact';">Contact</div>
+    {% if 'email' in session or 'admin' in session %}
+    <div onclick="location.href='/booking';">Booking</div>
+    {% else %}
+    <div onclick="location.href='/login';">Booking</div>
+    {% endif %}
+    {% if 'email' in session %}
+    <div onclick="location.href='/account';">Account</div>
+    {% elif 'admin' in session %}
+    <div onclick="location.href='/admin/account';">Admin</div>
+    {% else %}
+    <div onclick="location.href='/login';">Login</div>
+    {% endif %}
+  </div>
+</header>
+
+<script src="{{ url_for('static', filename='scripts/header.js') }}"></script>

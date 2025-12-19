@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Book an appointment | Emocia{% endblock %}
+
+{% block description %}
+Book an appointment for professional therapy services including emotional detachment, negative emotion management, and
+trauma healing.
+{% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/booking.css') }}">
+{% endblock %}
+
+{% block meta_tags %}
+<meta property="og:title" content="Book an appointment | Emocia">
+<meta property="og:description"
+  content="Book an appointment for professional therapy services including emotional detachment, negative emotion management, and trauma healing.">
+<meta property="og:url" content="https://www.emocia.com/booking">
+<meta property="og:image" content="https://www.emocia.com/static/images/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Emocia">
+{% endblock %}
+
+{% block content %}
+<main>
+  <section class="booking-section">
+    <div class="booking">
+      <form action="/booking/submit" method="POST" class="booking-form">
+        <h1 class="booking-title">Book an appointment</h1>
+
+        <label for="full-name" class="booking-label">Your Name</label>
+        <input id="full-name" type="text" name="full_name" class="booking-input" required>
+
+        <label for="email" class="booking-label">Your Email</label>
+        <input id="email" type="email" name="email" class="booking-input" required>
+
+        <label for="date" class="booking-label">Date</label>
+        <input id="date" type="date" name="date" class="booking-input" required>
+
+        <label for="time" class="booking-label">Hours</label>
+        <select id="time" name="time" class="booking-select" required>
+          {% for h in hours %}
+          <option value="{{ h }}">{{ h }}</option>
+          {% endfor %}
+        </select>
+
+        <button type="submit" class="booking-btn">Confirm appointment</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+{% with messages = get_flashed_messages(category_filter=["error"]) %}
+{% if messages %}
+<input type="hidden" id="booking-error" value="{{ messages[0] }}">
+{% endif %}
+{% endwith %}
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='scripts/booking.js') }}"></script>
+{% endblock %}

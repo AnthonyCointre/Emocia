@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}About | Emocia{% endblock %}
+
+{% block description %}
+I am X, a neurotherapist and hypnotherapist specializing in emotional detachment, negative emotion management, and
+healing from trauma and emotional wounds.
+{% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/about.css') }}">
+{% endblock %}
+
+{% block meta_tags %}
+<meta property="og:title" content="About | Emocia">
+<meta property="og:description"
+  content="I am X, a neurotherapist and hypnotherapist specializing in emotional detachment, negative emotion management, and healing from trauma and emotional wounds.">
+<meta property="og:url" content="https://www.emocia.com/about">
+<meta property="og:image" content="https://www.emocia.com/static/images/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Emocia">
+{% endblock %}
+
+{% block content %}
+<section class="about-section">
+  <div class="about-me">
+    <h1>About me</h1>
+    <div class="about-me-content">
+      <img src="{{ url_for('static', filename='images/photo.png') }}" alt="Photo of X" class="about-me-photo">
+      <p>
+        I am X, a neurotherapist and hypnotherapist specializing in emotional detachment, negative emotion
+        management, and healing from trauma and emotional wounds. For over 21 years, I have helped my clients on
+        their journey to emotional freedom and inner healing.
+      </p>
+    </div>
+  </div>
+
+  <div class="my-approach">
+    <h2>My approach</h2>
+    <p><strong>- Emotional Detachment:</strong> I guide you through a process that helps you distance yourself from
+      negative emotions and difficult past experiences. My goal is to help you let go of these burdens, allowing you to
+      fully live in the present.</p>
+    <p><strong>- Emotion Management:</strong> Understanding and managing your emotions is essential for finding
+      clarity and peace of mind. Together, we work on practical techniques to transform your negative emotions into
+      sources of growth and resilience.</p>
+    <p><strong>- Healing from Trauma:</strong> Deep emotional wounds and trauma can have a powerful but invisible
+      impact on your daily life. Through personalized sessions, I assist you in healing these wounds, freeing you
+      from recurring patterns of suffering.</p>
+  </div>
+
+  <div class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <p class="questions">How does a session take place?</p>
+    <p class="answers">It is a brief therapy that takes place over 3 to 4 sessions of 3 hours</p>
+
+    <p class="questions">What is your approach?</p>
+    <p class="answers">This therapy targets the root(s) of trauma.</p>
+
+    <p class="questions">For what problems, discomfort or disorders are you consulted?</p>
+    <p class="answers">Difficulties in managing emotions, anxiety attacks, support for a pathology, malaise,
+      repetitive patterns</p>
+
+    <p class="questions">What benefits for your patients?</p>
+    <p class="answers">100% success and results that last over time</p>
+  </div>
+
+  <div class="why-choose-me">
+    <h2>Why choose me?</h2>
+    <p>- A compassionate listener and personalized guidance</p>
+    <p>- Therapeutic techniques based on the science of emotions and brain function</p>
+    <p>- A safe space to explore your emotions with confidence</p>
+
+    <p class="closing">
+      «Detaching yourself from your emotions means learning to manage them better.»
+    </p>
+  </div>
+</section>
+{% endblock %}

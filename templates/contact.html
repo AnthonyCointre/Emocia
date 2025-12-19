@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact | Emocia{% endblock %}
+
+{% block description %}
+Email: contact@therapist.com; Phone: +33 1 23 45 67 89; Hours: Monday - Friday, 9am - 6pm; Location: 15 Av. des
+Allobroges, 74200 Thonon-les-Bains - Espace Harmony&Co, fourth floor.
+{% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/contact.css') }}">
+{% endblock %}
+
+{% block meta_tags %}
+<meta property="og:title" content="Contact | Emocia">
+<meta property="og:description"
+  content="Email: contact@therapist.com; Phone: +33 1 23 45 67 89; Hours: Monday - Friday, 9am - 6pm; Location: 15 Av. des Allobroges, 74200 Thonon-les-Bains - Espace Harmony&Co, fourth floor.">
+<meta property="og:url" content="https://www.emocia.com/contact">
+<meta property="og:image" content="https://www.emocia.com/static/images/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Emocia">
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyWtR2PuAAXV4MMpqH2jUMFXqNTvGRZEA&callback=console.debug&libraries=maps,marker&v=beta">
+  </script>
+{% endblock %}
+
+{% block content %}
+<section class="contact-section">
+  <div class="contact-me">
+    <form class="contact-form" action="{{ url_for('main.contact') }}" method="post">
+      <h1>Contact me</h1>
+
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send message</button>
+    </form>
+  </div>
+
+  <div class="contact-details">
+    <h2>Contact details</h2>
+    <p><strong>Email:</strong> contact@therapist.com</p>
+    <p><strong>Phone:</strong> +33 1 23 45 67 89</p>
+    <p><strong>Hours:</strong> Monday - Friday, 9am - 6pm</p>
+    <p><strong>Location:</strong> 15 Av. des Allobroges, 74200 Thonon-les-Bains - Espace Harmony&Co, fourth floor.</p>
+  </div>
+
+
+  <gmp-map center="46.36939338898116, 6.4810351039032374" zoom="18" map-id="DEMO_MAP_ID">
+    <gmp-advanced-marker position="46.36939338898116, 6.4810351039032374" title="Office"></gmp-advanced-marker>
+  </gmp-map>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="/static/scripts/script.js"></script>
+{% endblock %}
