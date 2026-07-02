@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, jsonify
+from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify
 from utils.db import get_db_connection
 
 main_bp = Blueprint('main', __name__)
@@ -22,49 +22,37 @@ def about():
 @main_bp.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
-        if request.is_json:
-            data = request.get_json()
-            try:
-                name = data['name']
-                email = data['email']
-                subject = data['subject']
-                message = data['message']
-            except KeyError as e:
-                return jsonify({"error": f"Missing field: {e.args[0]}"}), 400
-        else:
-            try:
-                name = request.form['name']
-                email = request.form['email']
-                subject = request.form['subject']
-                message = request.form['message']
-            except KeyError as e:
-                return jsonify({"error": f"Missing field: {e.args[0]}"}), 400
+
+        data = request.get_json() if request.is_json else request.form
+
+        try:
+            name = data['name']
+            email = data['email']
+            subject = data['subject']
+            message = data['message']
+        except KeyError as e:
+            return jsonify({"error": f"Missing field: {e.args[0]}"}), 400
 
         if not all([name, email, subject, message]):
             return jsonify({"error": "All fields are required"}), 400
 
-        conn = get_db_connection("DATABASE_MESSAGES")
+        conn = get_db_connection("DATABASE_URL")
         cursor = conn.cursor()
+
         cursor.execute("""
-            CREATE TABLE IF NOT EXISTS messages (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,
-                email TEXT NOT NULL,
-                subject TEXT NOT NULL,
-                message TEXT NOT NULL,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            )
-        """)
-        cursor.execute(
-            "INSERT INTO messages (name, email, subject, message) VALUES (?, ?, ?, ?)",
-            (name, email, subject, message)
-        )
+            INSERT INTO messages (name, email, subject, message)
+            VALUES (?, ?, ?, ?)
+        """, (name, email, subject, message))
+
         conn.commit()
         conn.close()
 
+        msg = "Your message has been sent successfully!"
+
         if request.is_json:
-            return jsonify({"success": "Message received"}), 200
-        else:
-            return redirect(url_for('main.contact'))
+            return jsonify({"success": msg}), 200
+
+        flash(msg, "success")
+        return redirect(url_for('main.contact'))
 
     return render_template('contact.html')

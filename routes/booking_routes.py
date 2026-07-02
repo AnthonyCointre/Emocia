@@ -17,65 +17,50 @@ def booking():
 @booking_bp.route('/booking/submit', methods=['POST'])
 @jwt_required
 def booking_submit(user_data):
-    if request.is_json:
-        try:
-            data = request.get_json()
-            full_name = data['full_name']
-            email = data['email']
-            date = data['date']
-            time = data['time']
-        except KeyError as e:
-            return jsonify({"error": f"Missing field: {e.args[0]}"}), 400
-    else:
-        try:
-            full_name = request.form['full_name']
-            email = request.form['email']
-            date = request.form['date']
-            time = request.form['time']
-        except KeyError as e:
-            return jsonify({"error": f"Missing field: {e.args[0]}"}), 400
 
-    if not all([full_name, email, date, time]):
+    data = request.get_json() if request.is_json else request.form
+
+    try:
+        date = data["date"]
+        time = data["time"]
+    except KeyError as e:
+        return jsonify({"error": f"Missing field: {e.args[0]}"}), 400
+
+    if not all([date, time]):
         return jsonify({"error": "All fields are required"}), 400
 
-    conn = get_db_connection("DATABASE_APPOINTMENTS")
+    conn = get_db_connection("DATABASE_URL")
     cursor = conn.cursor()
 
+    user_id = user_data["user_id"]
     cursor.execute("""
-        CREATE TABLE IF NOT EXISTS appointments (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            full_name TEXT NOT NULL,
-            email TEXT NOT NULL,
-            date TEXT NOT NULL,
-            time TEXT NOT NULL,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-    """)
+        SELECT id FROM appointments
+        WHERE date = ? AND time = ?
+    """, (date, time))
 
-    cursor.execute(
-        "SELECT * FROM appointments WHERE date = ? AND time = ?", (date, time)
-    )
-    existing = cursor.fetchone()
-
-    if existing:
+    if cursor.fetchone():
         conn.close()
-        if request.is_json:
-            return jsonify({"error": "This time slot is already booked. Please choose another one."}), 400
-        else:
-            flash("This time slot is already booked. Please choose another one.", "error")
-            return redirect(url_for('booking.booking'))
 
-    cursor.execute(
-        "INSERT INTO appointments (full_name, email, date, time) VALUES (?, ?, ?, ?)",
-        (full_name, email, date, time)
-    )
+        msg = "This time slot is already booked. Please choose another one."
+
+        if request.is_json:
+            return jsonify({"error": msg}), 400
+
+        flash(msg, "error")
+        return redirect(url_for("booking.booking"))
+
+    cursor.execute("""
+        INSERT INTO appointments (user_id, date, time)
+        VALUES (?, ?, ?)
+    """, (user_id, date, time))
+
     conn.commit()
     conn.close()
 
     if request.is_json:
         return jsonify({"success": "Appointment booked successfully"}), 200
-    else:
-        return redirect(url_for('booking.booking_success'))
+
+    return redirect(url_for('booking.booking_success'))
 
 
 @booking_bp.route('/booking/success')
