@@ -1,5 +1,5 @@
 CREATE TABLE admins (
-    id INTEGER PRIMARY KEY CHECK(id = 1),
+    id INTEGER PRIMARY KEY,
     email TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL
 );
