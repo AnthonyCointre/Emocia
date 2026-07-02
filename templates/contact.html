@@ -7,10 +7,6 @@ Email: contact@therapist.com; Phone: +33 1 23 45 67 89; Hours: Monday - Friday, 
 Allobroges, 74200 Thonon-les-Bains - Espace Harmony&Co, fourth floor.
 {% endblock %}
 
-{% block extra_styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/contact.css') }}">
-{% endblock %}
-
 {% block meta_tags %}
 <meta property="og:title" content="Contact | Emocia">
 <meta property="og:description"
@@ -54,13 +50,14 @@ Allobroges, 74200 Thonon-les-Bains - Espace Harmony&Co, fourth floor.
     <p><strong>Location:</strong> 15 Av. des Allobroges, 74200 Thonon-les-Bains - Espace Harmony&Co, fourth floor.</p>
   </div>
 
-
   <gmp-map center="46.36939338898116, 6.4810351039032374" zoom="18" map-id="DEMO_MAP_ID">
     <gmp-advanced-marker position="46.36939338898116, 6.4810351039032374" title="Office"></gmp-advanced-marker>
   </gmp-map>
 </section>
-{% endblock %}
 
-{% block extra_scripts %}
-<script src="/static/scripts/script.js"></script>
+{% with messages = get_flashed_messages(category_filter=["success"]) %}
+{% if messages %}
+<input type="hidden" id="contact-success" value="{{ messages[0] }}">
+{% endif %}
+{% endwith %}
 {% endblock %}

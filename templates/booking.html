@@ -7,10 +7,6 @@ Book an appointment for professional therapy services including emotional detach
 trauma healing.
 {% endblock %}
 
-{% block extra_styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/booking.css') }}">
-{% endblock %}
-
 {% block meta_tags %}
 <meta property="og:title" content="Book an appointment | Emocia">
 <meta property="og:description"
@@ -29,10 +25,10 @@ trauma healing.
         <h1 class="booking-title">Book an appointment</h1>
 
         <label for="full-name" class="booking-label">Your Name</label>
-        <input id="full-name" type="text" name="full_name" class="booking-input" required>
+        <input id="full-name" type="text" name="full_name" class="booking-input">
 
         <label for="email" class="booking-label">Your Email</label>
-        <input id="email" type="email" name="email" class="booking-input" required>
+        <input id="email" type="email" name="email" class="booking-input">
 
         <label for="date" class="booking-label">Date</label>
         <input id="date" type="date" name="date" class="booking-input" required>
@@ -55,8 +51,4 @@ trauma healing.
 <input type="hidden" id="booking-error" value="{{ messages[0] }}">
 {% endif %}
 {% endwith %}
-{% endblock %}
-
-{% block extra_scripts %}
-<script src="{{ url_for('static', filename='scripts/booking.js') }}"></script>
 {% endblock %}

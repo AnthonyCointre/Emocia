@@ -6,10 +6,6 @@
 Login to your Emocia account or sign up to manage your appointments and personal information.
 {% endblock %}
 
-{% block extra_styles %}
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/login.css') }}">
-{% endblock %}
-
 {% block meta_tags %}
 <meta property="og:title" content="Login | Emocia">
 <meta property="og:description"
@@ -23,65 +19,64 @@ Login to your Emocia account or sign up to manage your appointments and personal
 {% block content %}
 <section class="login-section">
   <div class="login-title">
-    <h1 class="tab-title" id="login-title">Login</h1>
-    <h1 class="tab-title" id="signup-title" style="display: none;">Sign Up</h1>
+    <h1 class="login-tab-title" id="login-title">Login</h1>
+    <h1 class="login-tab-title" id="signup-title" style="display: none;">Sign Up</h1>
   </div>
 
-  <div class="tab-buttons">
-    <div tabindex="0" class="tab-button" onclick="showTab('login')">Login</div>
-    <div tabindex="0" class="tab-button" onclick="showTab('sign-up')">Sign Up</div>
-  </div>
+  <button type="button" class="login-tab-button" onclick="showTab('login')">
+    Login
+  </button>
 
-  <section id="login" class="tab active">
+  <button type="button" class="login-tab-button" onclick="showTab('sign-up')">
+    Sign Up
+  </button>
+
+  <section id="login" class="login-tab active">
     <form action="/login" method="post">
       <input type="hidden" name="action" value="login">
-      <div class="form-group">
+      <div class="login-form-group">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
       </div>
-      <div class="form-group">
+      <div class="login-form-group">
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
       </div>
       {% if error %}
-      <div class="error-message" style="color: red;">{{ error }}</div>
+      <div class="login-error-message" style="color: red;">{{ error }}</div>
       {% endif %}
-      <div class="form-group">
+      <div class="login-form-group">
         <button type="submit">Login</button>
       </div>
     </form>
   </section>
 
-  <section id="sign-up" class="tab">
+  <section id="sign-up" class="login-tab">
     <form action="/login" method="post">
       <input type="hidden" name="action" value="sign-up">
-      <div class="form-group">
+      <div class="login-form-group">
         <label for="first_name">First Name:</label>
         <input type="text" id="first_name" name="first_name" required>
       </div>
-      <div class="form-group">
+      <div class="login-form-group">
         <label for="last_name">Last Name:</label>
         <input type="text" id="last_name" name="last_name" required>
       </div>
-      <div class="form-group">
+      <div class="login-form-group">
         <label for="signup-email">Email:</label>
         <input type="email" id="signup-email" name="email" required>
       </div>
-      <div class="form-group">
+      <div class="login-form-group">
         <label for="signup-password">Password:</label>
         <input type="password" id="signup-password" name="password" required>
       </div>
       {% if error %}
-      <div class="error-message" style="color: red;">{{ error }}</div>
+      <div class="login-error-message" style="color: red;">{{ error }}</div>
       {% endif %}
-      <div class="form-group">
+      <div class="login-form-group">
         <button type="submit">Sign Up</button>
       </div>
     </form>
   </section>
 </section>
-{% endblock %}
-
-{% block extra_scripts %}
-<script src="{{ url_for('static', filename='scripts/login.js') }}"></script>
 {% endblock %}
