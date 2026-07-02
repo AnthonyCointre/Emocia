@@ -1,0 +1,1113 @@
+/* ================= GLOBAL ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: rgb(255, 230, 204);
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ================= HEADER ================= */
+header {
+  background-color: rgb(0, 153, 0);
+  padding: 10px 20px;
+  position: relative;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  width: 50px;
+  height: auto;
+  border-radius: 5px;
+  display: block;
+}
+
+.header-logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav,
+.header-account {
+  display: flex;
+  gap: 10px;
+}
+
+.header-nav a,
+.header-account a,
+.header-mobile-menu a {
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: large;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.header-nav a:hover,
+.header-account a:hover,
+.header-mobile-menu a:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.header-hamburger {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+.header-mobile-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  background-color: rgb(0, 153, 0);
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.header-mobile-menu a {
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+}
+
+.header-mobile-menu.show {
+  display: flex;
+}
+
+/* ================= HOME ================= */
+.home-section {
+  max-width: 90%;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.home-section h2 {
+  margin: 50px 0 20px;
+}
+
+.home-hero-content {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/images/hero.png');
+  background-size: cover;
+  background-position: center;
+  color: rgb(255, 255, 255);
+  padding: 60px 20px;
+  border-radius: 10px;
+}
+
+.home-hero-content h1 {
+  font-size: xx-large;
+  margin: 0 0 20px;
+}
+
+.home-hero-content p {
+  font-size: large;
+  margin-bottom: 30px;
+}
+
+.home-cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.home-cta-button:hover {
+  background-color: rgb(230, 230, 230);
+  transition: 0.3s;
+}
+
+.home-services-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.home-service-item {
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: left;
+}
+
+.home-service-item h3 {
+  font-size: x-large;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+}
+
+.home-service-item p {
+  font-size: 1rem;
+  color: rgb(128, 128, 128);
+}
+
+.home-testimonials-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-testimonial-item {
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  text-align: left;
+}
+
+.home-testimonial-item p {
+  font-style: italic;
+  font-size: 1rem;
+  color: #333;
+}
+
+.home-testimonial-item span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #666;
+}
+
+/* ================= ABOUT ================= */
+.about-section {
+  max-width: 90%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-section h1,
+.about-section h2 {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin: 0;
+}
+
+.about-section h1 {
+  font-size: xx-large;
+}
+
+.about-section h2 {
+  font-size: x-large;
+}
+
+.about-section p {
+  color: rgb(128, 128, 128);
+  font-size: large;
+}
+
+.about-me,
+.about-my-approach,
+.about-faq,
+.about-why-choose-me {
+  text-align: justify;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.about-my-approach,
+.about-faq {
+  margin-top: 20px;
+}
+
+.about-me-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-me-photo {
+  max-width: 150px;
+  margin: 0;
+}
+
+.about-questions {
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+.about-answers {
+  margin: 0 0 10px;
+  display: inline-block;
+}
+
+.about-closing {
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+}
+
+/* ================= CONTACT ================= */
+.contact-section {
+  max-width: 90%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-section h1,
+.contact-section h2 {
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.contact-section h1 {
+  margin: 0;
+  font-size: xx-large;
+}
+
+.contact-section h2 {
+  margin: 0;
+  font-size: x-large;
+}
+
+.contact-section p {
+  color: rgb(128, 128, 128);
+  font-size: large;
+}
+
+.contact-section gmp-map {
+  height: 300px;
+}
+
+.contact-me {
+  margin: 0;
+}
+
+.contact-form,
+.contact-details {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form label {
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background-color: rgb(0, 153, 0);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: rgb(0, 140, 0);
+}
+
+/* ================= BOOKING ================= */
+.booking-section {
+  max-width: 90%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.booking {
+  margin: 0;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form h1 {
+  text-align: center;
+  margin: 0 0 20px 0;
+  font-size: xx-large;
+}
+
+.booking-form label {
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+.booking-form input,
+.booking-form select {
+  padding: 10px;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+
+.booking-form button {
+  padding: 10px 20px;
+  background-color: rgb(0, 153, 0);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.booking-form button:hover {
+  background-color: rgb(0, 140, 0);
+}
+
+/* ================= BOOKING SUCCESS ================= */
+.booking-success-container {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  max-width: 600px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.booking-success-container h1 {
+  font-size: xx-large;
+  margin: 0;
+  color: rgb(0, 0, 0);
+}
+
+.booking-success-container p {
+  font-size: large;
+  color: rgb(64, 64, 64);
+  margin: 0;
+}
+
+.booking-success-container a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 25px;
+  background-color: rgb(0, 153, 0);
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.booking-success-container a:hover {
+  background-color: rgb(0, 140, 0);
+}
+
+/* ================= LOGIN ================= */
+.login-section {
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  width: 100%;
+  text-align: center;
+}
+
+.login-title h1 {
+  font-size: xx-large;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.login-tab-buttons {
+  margin-bottom: 20px;
+}
+
+.login-tab-button {
+  background-color: rgb(0, 153, 255);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  cursor: pointer;
+  padding: 10px 0;
+  margin: 5px;
+  display: inline-block;
+  font-size: large;
+}
+
+.login-tab-button:hover {
+  background-color: rgb(0, 138, 230);
+  color: rgb(255, 255, 255);
+  transition: 0.3s;
+}
+
+.login-tab {
+  display: none;
+}
+
+.login-tab.active {
+  display: block;
+}
+
+.login-error-message {
+  margin: 10px 0;
+}
+
+.login-form-group {
+  margin: 15px 0;
+}
+
+.login-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: large;
+  font-weight: bold;
+}
+
+.login-form-group button {
+  background-color: rgb(0, 153, 0);
+  color: rgb(255, 255, 255);
+  width: 100px;
+  padding: 10px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: large;
+}
+
+.login-form-group button:hover {
+  background-color: rgb(0, 128, 0);
+  transition: 0.3s;
+}
+
+.login-tab input[type="text"],
+.login-tab input[type="email"],
+.login-tab input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* ================= ACCOUNT ================= */
+.account-container {
+  width: 100%;
+  max-width: 90%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+}
+
+.account-container h1,
+.account-container h2 {
+  text-align: center;
+  margin: 0;
+}
+
+.account-container h1 {
+  font-size: xx-large;
+  margin-bottom: 20px;
+}
+
+.account-container h2 {
+  font-size: x-large;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.account-container p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.account-container form {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.account-container button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+}
+
+.account-container button:hover {
+  opacity: 0.9;
+}
+
+.account-container form[action="/account"] button {
+  background-color: red;
+}
+
+.account-container form[action="/logout"] button {
+  background-color: rgb(0, 153, 0);
+}
+
+.account-personal-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0 20px;
+  font-size: 0.95rem;
+}
+
+.account-personal-info-table th,
+.account-personal-info-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.account-personal-info-table th {
+  background-color: #f0f0f0;
+}
+
+.account-personal-info-table td {
+  background-color: #f9f9f9;
+}
+
+.account-appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.95rem;
+}
+
+.account-appointments-table th,
+.account-appointments-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.account-appointments-table th {
+  background-color: #f0f0f0;
+}
+
+.account-appointments-table td {
+  background-color: #f9f9f9;
+}
+
+/* ================= ADMIN ACCOUNT ================= */
+.admin-container {
+  width: 100%;
+  max-width: 90%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.admin-container h1,
+.admin-container h2 {
+  margin: 0;
+}
+
+.admin-container h1 {
+  font-size: xx-large;
+  margin-bottom: 20px;
+}
+
+.admin-container h2 {
+  font-size: x-large;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.admin-container p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.admin-container form[action="/admin/logout"] button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgb(0, 153, 0);
+}
+
+.admin-container form[action="/admin/logout"] button:hover {
+  opacity: 0.9;
+}
+
+.admin-container form {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.admin-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.admin-table-wrapper th,
+.admin-table-wrapper td {
+  padding: 8px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-table-wrapper th {
+  background-color: #f0f0f0;
+}
+
+.admin-table-wrapper td {
+  background-color: #f9f9f9;
+}
+
+.admin-table-wrapper form.deleteForm button {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  width: 4rem;
+  height: 1.7rem;
+  box-sizing: border-box;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin-table-wrapper form.deleteForm button:hover {
+  opacity: 0.9;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background-color: rgb(0, 153, 0);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 810px) {
+
+  /* ================= HEADER ================= */
+  .header-nav,
+  .header-account {
+    display: none;
+  }
+
+  .header-hamburger {
+    display: block;
+  }
+
+  /* ================= HOME ================= */
+  .home-hero-content {
+    padding: 40px 15px;
+  }
+
+  .home-hero-content h1 {
+    font-size: large;
+  }
+
+  .home-hero-content p {
+    font-size: medium;
+    margin-bottom: 20px;
+  }
+
+  .home-cta-button {
+    padding: 10px 20px;
+    font-size: large;
+  }
+
+  .home-services-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-service-item {
+    width: 90%;
+    padding: 15px;
+    margin: 10px 0;
+  }
+
+  .home-service-item h3 {
+    font-size: large;
+  }
+
+  .home-service-item p {
+    font-size: 0.9rem;
+  }
+
+  .home-testimonial-item {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .home-testimonial-item p {
+    font-size: 0.9rem;
+  }
+
+  .home-h2 {
+    margin: 30px 0 15px;
+    font-size: large;
+  }
+
+  /* ================= ABOUT ================= */
+  .about-section {
+    max-width: 90%;
+    gap: 15px;
+  }
+
+  .about-section p,
+  .about-closing {
+    font-size: medium;
+  }
+
+  .about-section h1 {
+    font-size: x-large;
+  }
+
+  .about-section h2 {
+    font-size: large;
+  }
+
+  .about-me,
+  .about-my-approach,
+  .about-faq,
+  .about-why-choose-me {
+    padding: 15px;
+  }
+
+  .about-me-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-me-photo {
+    max-width: 120px;
+    margin-bottom: 15px;
+  }
+
+  /* ================= CONTACT ================= */
+  .contact-section {
+    max-width: 90%;
+    gap: 15px;
+  }
+
+  .contact-section h1 {
+    font-size: x-large;
+  }
+
+  .contact-section h2 {
+    font-size: large;
+  }
+
+  .contact-section gmp-map {
+    height: 200px;
+  }
+
+  .contact-form,
+  .contact-details {
+    padding: 15px;
+  }
+
+  .contact-section p {
+    font-size: medium;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+
+  /* ================= BOOKING ================= */
+  .booking-section {
+    max-width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .booking {
+    margin: 0;
+  }
+
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .booking-form h1 {
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-size: xx-large;
+  }
+
+  .booking-form label {
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+  }
+
+  .booking-form input,
+  .booking-form select {
+    padding: 10px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+  }
+
+  .booking-form button {
+    padding: 10px 20px;
+    background-color: rgb(0, 153, 0);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+
+  .booking-form button:hover {
+    background-color: rgb(0, 140, 0);
+  }
+
+  /* ================= BOOKING SUCCESS ================= */
+  .booking-success-container {
+    padding: 25px 15px;
+  }
+
+  .booking-success-container h1 {
+    font-size: x-large;
+  }
+
+  .booking-success-container p {
+    font-size: 1rem;
+  }
+
+  .booking-success-container a {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  /* ================= LOGIN ================= */
+  .login-section {
+    padding: 15px;
+  }
+
+  .login-tab-button,
+  .login-form-group button {
+    width: 90px;
+    font-size: medium;
+    padding: 8px 0;
+  }
+
+  .login-tab input[type="text"],
+  .login-tab input[type="email"],
+  .login-tab input[type="password"] {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  .login-title h1 {
+    font-size: x-large;
+  }
+
+  /* ================= ACCOUNT ================= */
+  .account-container {
+    padding: 15px;
+  }
+
+  .account-container h1 {
+    font-size: x-large;
+  }
+
+  .account-container h2 {
+    font-size: large;
+  }
+
+  .account-container button {
+    padding: 8px 15px;
+    font-size: 0.95rem;
+  }
+
+  .account-container p {
+    font-size: 0.95rem;
+  }
+
+  .account-appointments-table th,
+  .account-appointments-table td {
+    padding: 6px;
+    font-size: 0.9rem;
+  }
+
+  /* ================= ADMIN ACCOUNT ================= */
+  .admin-container {
+    padding: 15px;
+  }
+
+  .admin-container h1 {
+    font-size: x-large;
+  }
+
+  .admin-container h2 {
+    font-size: large;
+  }
+
+  .admin-container form[action="/admin/logout"] button {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .admin-table-wrapper th,
+  .admin-table-wrapper td {
+    padding: 6px 8px;
+    font-size: 0.85rem;
+  }
+
+  .admin-table-wrapper form.deleteForm button {
+    font-size: 0.75rem;
+    padding: 3px 5px;
+  }
+
+  /* ================= FOOTER ================= */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-nav {
+    justify-content: center;
+  }
+}
