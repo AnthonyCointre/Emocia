@@ -1,20 +1,27 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify
 from routes.auth_routes import jwt_required
-from utils.db import get_db_connection
+from extensions import db
+from models import Appointment
 
-booking_bp = Blueprint('booking', __name__)
+booking_bp = Blueprint("booking", __name__)
 
 
-@booking_bp.route('/booking')
+@booking_bp.route("/booking")
 def booking():
+
     hours = [
-        "09:00", "10:00", "11:00",
-        "14:00", "15:00", "16:00"
+        "09:00",
+        "10:00",
+        "11:00",
+        "14:00",
+        "15:00",
+        "16:00"
     ]
+
     return render_template("booking.html", hours=hours)
 
 
-@booking_bp.route('/booking/submit', methods=['POST'])
+@booking_bp.route("/booking/submit", methods=["POST"])
 @jwt_required
 def booking_submit(user_data):
 
@@ -29,17 +36,12 @@ def booking_submit(user_data):
     if not all([date, time]):
         return jsonify({"error": "All fields are required"}), 400
 
-    conn = get_db_connection("DATABASE_URL")
-    cursor = conn.cursor()
+    existing_appointment = Appointment.query.filter_by(
+        date=date,
+        time=time
+    ).first()
 
-    user_id = user_data["user_id"]
-    cursor.execute("""
-        SELECT id FROM appointments
-        WHERE date = ? AND time = ?
-    """, (date, time))
-
-    if cursor.fetchone():
-        conn.close()
+    if existing_appointment:
 
         msg = "This time slot is already booked. Please choose another one."
 
@@ -49,20 +51,22 @@ def booking_submit(user_data):
         flash(msg, "error")
         return redirect(url_for("booking.booking"))
 
-    cursor.execute("""
-        INSERT INTO appointments (user_id, date, time)
-        VALUES (?, ?, ?)
-    """, (user_id, date, time))
+    appointment = Appointment(
+        user_id=user_data["user_id"],
+        admin_id=1,
+        date=date,
+        time=time
+    )
 
-    conn.commit()
-    conn.close()
+    db.session.add(appointment)
+    db.session.commit()
 
     if request.is_json:
         return jsonify({"success": "Appointment booked successfully"}), 200
 
-    return redirect(url_for('booking.booking_success'))
+    return redirect(url_for("booking.booking_success"))
 
 
-@booking_bp.route('/booking/success')
+@booking_bp.route("/booking/success")
 def booking_success():
     return render_template("booking_success.html")
