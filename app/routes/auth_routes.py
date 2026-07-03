@@ -3,9 +3,9 @@ import datetime
 import bcrypt
 import jwt
 from flask import Blueprint, request, redirect, url_for, session, render_template
-from models import User, Admin, Appointment
-from extensions import db
-from utils.helpers import is_valid_email, is_strong_password, jwt_required
+from app.models import User, Admin, Appointment
+from app.extensions import db
+from app.utils.helpers import is_valid_email, is_strong_password, jwt_required
 
 
 auth_bp = Blueprint('auth', __name__)

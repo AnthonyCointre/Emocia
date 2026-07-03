@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify
-from extensions import db
-from models import Message
+from app.extensions import db
+from app.models import Message
 
 main_bp = Blueprint('main', __name__)
 

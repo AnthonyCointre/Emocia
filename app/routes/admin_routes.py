@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session
-from models import Appointment, Message
-from extensions import db
-from routes.auth_routes import jwt_required
+from app.models import Appointment, Message
+from app.extensions import db
+from app.routes.auth_routes import jwt_required
 
 
 admin_bp = Blueprint('admin', __name__, url_prefix='/admin')

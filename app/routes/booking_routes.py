@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify
-from routes.auth_routes import jwt_required
-from extensions import db
-from models import Appointment
+from app.routes.auth_routes import jwt_required
+from app.extensions import db
+from app.models import Appointment
 
 booking_bp = Blueprint("booking", __name__)
 
