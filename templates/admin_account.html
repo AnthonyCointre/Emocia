@@ -24,14 +24,14 @@ Admin account management page to view and manage appointments and messages.
 
       {% for a in appointments %}
       <tr>
-        <td>{{ a[1] }} {{ a[2] }}</td>
-        <td>{{ a[3] }}</td>
-        <td>{{ a[4] }}</td>
-        <td>{{ a[5] }}</td>
+        <td>{{ a.user.first_name }} {{ a.user.last_name }}</td>
+        <td>{{ a.user.email }}</td>
+        <td>{{ a.date }}</td>
+        <td>{{ a.time }}</td>
 
         <td>
           <form class="deleteForm" action="{{ url_for('admin.delete_appointment') }}" method="POST">
-            <input type="hidden" name="appointment_id" value="{{ a[0] }}">
+            <input type="hidden" name="appointment_id" value="{{ a.id }}">
             <button type="submit">Delete</button>
           </form>
         </td>
@@ -59,15 +59,15 @@ Admin account management page to view and manage appointments and messages.
 
       {% for m in messages %}
       <tr>
-        <td>{{ m[1] }}</td>
-        <td>{{ m[2] }}</td>
-        <td>{{ m[3] }}</td>
-        <td>{{ m[4] }}</td>
-        <td>{{ m[5] }}</td>
+        <td>{{ m.name }}</td>
+        <td>{{ m.email }}</td>
+        <td>{{ m.subject }}</td>
+        <td>{{ m.message }}</td>
+        <td>{{ m.created_at }}</td>
 
         <td>
           <form class="deleteForm" action="{{ url_for('admin.delete_message') }}" method="POST">
-            <input type="hidden" name="message_id" value="{{ m[0] }}">
+            <input type="hidden" name="message_id" value="{{ m.id }}">
             <button type="submit">Delete</button>
           </form>
         </td>

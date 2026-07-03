@@ -31,9 +31,9 @@ Account management page to view and manage your appointments and personal inform
     </thead>
     <tbody>
       <tr>
-        <td>{{ user[1] }}</td>
-        <td>{{ user[2] }}</td>
-        <td>{{ user[3] }}</td>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+        <td>{{ user.email }}</td>
       </tr>
     </tbody>
   </table>
@@ -51,9 +51,9 @@ Account management page to view and manage your appointments and personal inform
     <tbody>
       {% for appt in appointments %}
       <tr>
-        <td>{{ appt[0] }}</td>
-        <td>{{ appt[1] }}</td>
-        <td>{{ appt[2] }}</td>
+        <td>{{ appt.date }}</td>
+        <td>{{ appt.time }}</td>
+        <td>{{ appt.user.first_name }} {{ appt.user.last_name }}</td>
       </tr>
       {% endfor %}
     </tbody>
