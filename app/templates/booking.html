@@ -25,10 +25,11 @@ trauma healing.
         <h1 class="booking-title">Book an appointment</h1>
 
         <label for="full-name" class="booking-label">Your Name</label>
-        <input id="full-name" type="text" name="full_name" class="booking-input">
+        <input id="full-name" type="text" name="full_name" class="booking-input"
+          value="{{ user.first_name }} {{ user.last_name }}" readonly>
 
         <label for="email" class="booking-label">Your Email</label>
-        <input id="email" type="email" name="email" class="booking-input">
+        <input id="email" type="email" name="email" class="booking-input" value="{{ user.email }}" readonly>
 
         <label for="date" class="booking-label">Date</label>
         <input id="date" type="date" name="date" class="booking-input" required>

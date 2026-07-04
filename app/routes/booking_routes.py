@@ -1,13 +1,16 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify
 from app.routes.auth_routes import jwt_required
 from app.extensions import db
-from app.models import Appointment
+from app.models import Appointment, User
 
 booking_bp = Blueprint("booking", __name__)
 
 
 @booking_bp.route("/booking")
-def booking():
+@jwt_required
+def booking(user_data):
+
+    user = User.query.get(user_data["user_id"])
 
     hours = [
         "09:00",
@@ -18,7 +21,7 @@ def booking():
         "16:00"
     ]
 
-    return render_template("booking.html", hours=hours)
+    return render_template("booking.html", hours=hours, user=user)
 
 
 @booking_bp.route("/booking/submit", methods=["POST"])
