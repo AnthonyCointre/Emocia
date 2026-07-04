@@ -15,9 +15,6 @@ Allobroges, 74200 Thonon-les-Bains - Espace Harmony&Co, fourth floor.
 <meta property="og:image" content="https://www.emocia.com/static/images/logo.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Emocia">
-<script async
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyWtR2PuAAXV4MMpqH2jUMFXqNTvGRZEA&callback=console.debug&libraries=maps,marker&v=beta">
-  </script>
 {% endblock %}
 
 {% block content %}
@@ -49,10 +46,6 @@ Allobroges, 74200 Thonon-les-Bains - Espace Harmony&Co, fourth floor.
     <p><strong>Hours:</strong> Monday - Friday, 9am - 6pm</p>
     <p><strong>Location:</strong> 15 Av. des Allobroges, 74200 Thonon-les-Bains - Espace Harmony&Co, fourth floor.</p>
   </div>
-
-  <gmp-map center="46.36939338898116, 6.4810351039032374" zoom="18" map-id="DEMO_MAP_ID">
-    <gmp-advanced-marker position="46.36939338898116, 6.4810351039032374" title="Office"></gmp-advanced-marker>
-  </gmp-map>
 </section>
 
 {% with messages = get_flashed_messages(category_filter=["success"]) %}
