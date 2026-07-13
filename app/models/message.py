@@ -18,7 +18,7 @@ class Message(db.Model):
 
     email = db.Column(db.String(255), nullable=False)
 
-    subject = db.Column(db.String(255), nullable=False)
+    subject = db.Column(db.String(150), nullable=False)
 
     message = db.Column(db.Text, nullable=False)
 

@@ -19,9 +19,9 @@ class Appointment(db.Model):
         nullable=False
     )
 
-    date = db.Column(db.String(20), nullable=False)
+    date = db.Column(db.String(10), nullable=False)
 
-    time = db.Column(db.String(10), nullable=False)
+    time = db.Column(db.String(5), nullable=False)
 
     user = db.relationship(
         "User",
