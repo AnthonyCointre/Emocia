@@ -20,7 +20,7 @@ class Message(db.Model):
 
     subject = db.Column(db.String(150), nullable=False)
 
-    message = db.Column(db.Text, nullable=False)
+    message = db.Column(db.String(1000), nullable=False)
 
     created_at = db.Column(
         db.DateTime(timezone=True),
