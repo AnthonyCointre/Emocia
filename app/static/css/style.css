@@ -521,6 +521,7 @@ header {
 
 .login-error-message {
   margin: 10px 0;
+  color: rgb(255, 0, 0);
 }
 
 .login-form-group {
