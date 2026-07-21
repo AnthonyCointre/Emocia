@@ -1,11 +1,11 @@
 CREATE TABLE messages (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    admin_id INTEGER NOT NULL,
-    name TEXT NOT NULL,
-    email TEXT NOT NULL,
-    subject TEXT NOT NULL,
-    message TEXT NOT NULL,
-    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY(admin_id) REFERENCES admins(id) ON DELETE CASCADE
-
+        id INTEGER NOT NULL,
+        admin_id INTEGER NOT NULL,
+        name VARCHAR(50) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        subject VARCHAR(150) NOT NULL,
+        message VARCHAR(1000) NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id),
+        FOREIGN KEY(admin_id) REFERENCES admins (id)
 );

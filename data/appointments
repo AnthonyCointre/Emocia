@@ -1,9 +1,10 @@
 CREATE TABLE appointments (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER NOT NULL,
-    admin_id INTEGER NOT NULL,
-    date TEXT NOT NULL,
-    time TEXT NOT NULL,
-    FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE,
-    FOREIGN KEY(admin_id) REFERENCES admins(id) ON DELETE CASCADE
+        id INTEGER NOT NULL,
+        user_id INTEGER NOT NULL,
+        admin_id INTEGER NOT NULL,
+        date VARCHAR(10) NOT NULL,
+        time VARCHAR(5) NOT NULL,
+        PRIMARY KEY (id),
+        FOREIGN KEY(user_id) REFERENCES users (id),
+        FOREIGN KEY(admin_id) REFERENCES admins (id)
 );
